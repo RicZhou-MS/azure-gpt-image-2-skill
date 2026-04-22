@@ -1,0 +1,53 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# uv
+.uv/
+
+# Packaged skill bundles
+*.skill
+
+# Default generated outputs (scripts write here unless --output is set)
+output.png
+output.jpg
+output.webp
+output_*.png
+output_*.jpg
+output_*.webp
