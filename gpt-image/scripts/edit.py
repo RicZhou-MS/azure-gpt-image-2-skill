@@ -124,12 +124,18 @@ def main():
         env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env")
     load_env(env_path)
 
-    if not os.environ.get("OPENAI_API_KEY"):
-        print("ERROR: OPENAI_API_KEY not found. Add it to .env or export it.", file=sys.stderr)
+    if not os.environ.get("AI_FOUNDRY_PRJ_URI") or not os.environ.get("AI_FOUNDRY_PRJ_API_KEY"):
+        print("ERROR: AI_FOUNDRY_PRJ_URI or AI_FOUNDRY_PRJ_API_KEY not found. Add them to .env or export them.", file=sys.stderr)
         sys.exit(1)
 
     from openai import OpenAI
-    client = OpenAI()
+    
+    endpoint = os.environ.get("AI_FOUNDRY_PRJ_URI")
+    api_key = os.environ.get("AI_FOUNDRY_PRJ_API_KEY")
+    client = OpenAI(
+        base_url=endpoint,
+        api_key=api_key,
+    )
 
     print(f"Editing with {len(args.images)} input image(s) at {size}, quality={args.quality}, format={args.output_format}...")
     for i, p in enumerate(args.images, 1):
