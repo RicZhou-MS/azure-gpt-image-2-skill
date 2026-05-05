@@ -11,17 +11,19 @@ Generate and edit images using OpenAI's `gpt-image-2` model through two CLI scri
 
 No install step needed — scripts use PEP 723 inline metadata. `uv run` handles dependency resolution automatically on first invocation.
 
-The scripts read `OPENAI_API_KEY` from the environment. Two ways to provide it:
+The scripts read `AI_FOUNDRY_PRJ_URI` and `AI_FOUNDRY_API_KEY` from the environment. Two ways to provide it:
 
 1. **Exported in the user's shell** (preferred, and standard for most CLI tools):
    ```bash
-   export OPENAI_API_KEY=sk-...
+   export AI_FOUNDRY_PRJ_URI=your_project_uri
+   export AI_FOUNDRY_API_KEY=your_api_key
    ```
    Typically placed in `~/.zshrc` / `~/.bashrc` so it survives across sessions. If it's already set for other OpenAI tools, nothing more to do.
 
 2. **`.env` file** in the skill root (`<SKILL_DIR>/.env`), as a fallback when the shell export isn't set:
    ```
-   OPENAI_API_KEY=sk-...
+   AI_FOUNDRY_PRJ_URI=your_project_uri
+   AI_FOUNDRY_API_KEY=your_api_key
    ```
 
 An already-exported shell variable takes precedence over `.env`, so both can coexist. If neither is present, the scripts exit with a clear error — remind the user to pick one.
@@ -272,7 +274,7 @@ uv run <SKILL_DIR>/scripts/edit.py \
 ## Error Handling
 
 The scripts validate:
-- `.env` exists and contains `OPENAI_API_KEY`
+- `.env` exists and contains `AI_FOUNDRY_PRJ_URI` and `AI_FOUNDRY_API_KEY` (if not set in shell)
 - Size meets all gpt-image-2 constraints (multiples of 16, ratio, pixel count)
 - `--output-compression` only used with jpeg/webp and in range 0-100
 - Input images exist (edit mode)
