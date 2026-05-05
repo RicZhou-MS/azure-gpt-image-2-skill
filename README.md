@@ -1,5 +1,7 @@
 # GPT Image - Azure AI Foundry Skill
 
+<NOTE: This project is cloned from https://github.com/dshark3y/gpt-image-2-skill, then modified for supporting Microsoft Foundry GPT-image-2 model, Thanks to the orignal project author.>
+
 Two CLI scripts wrapped as an AI coding assistant skill: `generate.py` for text-to-image with `gpt-image-2`, and `edit.py` for editing or compositing up to 10 reference images — powered by Azure AI Foundry. Dependencies install on first run via `uv` and PEP 723 inline metadata. No glue code. No boilerplate.
 
 ## Requirements
@@ -41,7 +43,7 @@ If `uv` isn't on your PATH after install, restart your shell or follow the on-sc
 **1. Clone or copy the skill into your project or skills directory.**
 
 ```bash
-git clone https://github.com/nicholasgriffintn/azure-gpt-image-2-skill.git
+gh repo clone RicZhou-MS/azure-gpt-image-2-skill
 ```
 
 The skill itself lives in the `gpt-image/` subdirectory of this repo.
