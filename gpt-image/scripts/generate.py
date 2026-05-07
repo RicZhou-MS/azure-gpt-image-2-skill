@@ -16,7 +16,7 @@ Options:
     --output-format png|jpeg|webp   Output file format. Default: png
     --output-compression INT    Compression 0-100 (jpeg/webp only).
     --n INT                     Number of variants to generate (1-4). Default: 1
-    --env-file PATH             Path to .env file with OPENAI_API_KEY. Default: ../.env
+    --env-file PATH             Path to .env file with AI_FOUNDRY_PRJ_API_KEY. Default: ../.env
 """
 
 import argparse
